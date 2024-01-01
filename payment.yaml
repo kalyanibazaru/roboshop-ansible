@@ -6,10 +6,19 @@
     ansible.builtin.dnf:
       name: "{{python}}" 
       state: present
+    loop:
+    - python36
+    - gcc
+    - python3-devel
 
   - name: create roboshop user
     ansible.builtin.user:
-      name: roboshop 
+      name: roboshop
+
+  - name: Recursively remove app directory
+    ansible.builtin.file:
+      path: /app
+      state: absent
 
   - name: create app directory
     ansible.builtin.file:
