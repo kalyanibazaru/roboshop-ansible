@@ -1,10 +1,10 @@
 - name: payment
   hosts: payment
   become: yes
-  tasks: 
-  - name: Install python package
+  tasks:
+  - name: Install python packages
     ansible.builtin.dnf:
-      name: "{{python}}" 
+      name: "{{item}}" 
       state: present
     loop:
     - python36
@@ -45,7 +45,7 @@
     ansible.builtin.copy:
       src: payment.service
       dest: /etc/systemd/system/payment.service
-
+      
   - name: deamon realod and start
     ansible.builtin.systemd_service:
       daemon_reload: true
