@@ -5,12 +5,8 @@
   - name: install nginx
     ansible.builtin.dnf:
       name: nginx 
+      state: present
 
-  - name: start nginx
-    ansible.builtin.dnf:
-      name: web
-      state: started
-      
   - name: remove html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
