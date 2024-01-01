@@ -19,7 +19,7 @@
 
   - name: download web application
     ansible.builtin.get_url:
-      url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      url: https://roboshop-builds.s3.amazonaws.com/web.zip
       dest: /tmp
 
   - name: extract web application
@@ -39,7 +39,4 @@
       state: restarted
       enabled: yes
   
-
-
-   
     
